@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div id="contact-form-div">
+      <form id="demo-form">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" id="email" name="email" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6Lffh3QlAAAAABPoWqlit5-y9XMP0TuKC7hucJ5z"></div>
+        <div>
+          <button type="button" class="btn btn-primary" onclick='sendContactEmail()'>Envoyer le message</button>
+        </div>
+      </form>
+    </div>
+    
+    <script src="index.js"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LexNnYlAAAAAN1MGk6LSdWVYGBcl2AxqWy2WxNP"></script>
+    <script>
+    grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute('6LexNnYlAAAAAN1MGk6LSdWVYGBcl2AxqWy2WxNP', {action: 'contact'}).then(function(token) {
+          verify(token);
+        });
+    });
+    </script>
+  </body>
+</html>
